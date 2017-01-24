@@ -20,6 +20,19 @@
         receivedElement.setAttribute('style', 'display:block;');
     };
 
+    function onButtonPress() {
+
+        window.alert("sometext");
+
+        var myTable = document.getElementById("buttons");
+        var currentIndex = myTable.rows.length;
+        var currentRow = myTable.insertRow(-1);
+        
+        console.debug("debug message");
+        console.log("logging message");
+
+    };
+
     function onPause() {
         // TODO: This application has been suspended. Save application state here.
     };

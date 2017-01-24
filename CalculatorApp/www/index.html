@@ -13,50 +13,44 @@
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>CalculatorApp</title>
     </head>
+
     <body>
         <div class="app">
+   
+            <div id="deviceready"> <!-- class="blink" -->
 
-    <!--
-            <h1>Apache Cordova</h1>
-            <h1>TEST</h1> 
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Hello Matt</p>
+                <form>
+                    <input type="text" class="resultBox">
+                </form>
+
+                <table id="buttons" table border="1">
+
+                    <tr>
+                        <td><input type="button" value="1" class="numberButton" onclick="onButtonPress();"></td>
+                        <td><input type="button" value="2" class="numberButton" id="testButton" ></td>
+                        <td><input type="button" value="3" class="numberButton"></td>
+                        <td><input type="button" value="+" class="numberButton"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="4" class="numberButton"></td>
+                        <td><input type="button" value="5" class="numberButton"></td>
+                        <td><input type="button" value="6" class="numberButton"></td>
+                        <td><input type="button" value="-" class="numberButton"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="7" class="numberButton"></td>
+                        <td><input type="button" value="8" class="numberButton"></td>
+                        <td><input type="button" value="9" class="numberButton"></td>
+                        <td><input type="button" value="/" class="numberButton"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="0" class="numberButton"></td>
+                        <td><input type="button" value="=" class="numberButton"></td>
+                        <td><input type="button" value="X" class="numberButton"></td>
+                    </tr>
+
+                </table>
             </div>
-     -->
-            <form>
-                 <input type="text" class="resultBox">
-            </form>
-            
-            <table border="1">
-                <tr>
-                    <td><input type="button" value="1" class="numberButton"></td>
-                    <td><input type="button" value="2" class="numberButton"></td>
-                    <td><input type="button" value="3" class="numberButton"></td>
-                    <td><input type="button" value="+" class="numberButton"></td>
-                </tr>
-                <tr>
-                    <td><input type="button" value="4" class="numberButton"></td>
-                    <td><input type="button" value="5" class="numberButton"></td>
-                    <td><input type="button" value="6" class="numberButton"></td>
-                    <td><input type="button" value="-" class="numberButton"></td>
-                </tr>
-                <tr>
-                    <td><input type="button" value="7" class="numberButton"></td>
-                    <td><input type="button" value="8" class="numberButton"></td>
-                    <td><input type="button" value="9" class="numberButton"></td>
-                    <td><input type="button" value="/" class="numberButton"></td>
-                </tr>
-                <tr>
-                    <td><input type="button" value="0" class="numberButton"></td>
-                    <td><input type="button" value="=" class="numberButton"></td>
-                    <td><input type="button" value="X" class="numberButton"></td>
-                </tr>
-
-                <tr>
-                  <!--  {all other rows of digits are similar..}  -->
-                </tr>
-            </table>
 
         </div>
 
