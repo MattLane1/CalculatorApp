@@ -5,7 +5,25 @@
 (function () {
     "use strict";
 
-    document.addEventListener( 'deviceready', onDeviceReady.bind( this ), false );
+    document.addEventListener('deviceready', onDeviceReady.bind(this), false);
+
+
+    //- Using a function pointer:
+    document.getElementById("0").onclick = onButtonPress;
+    document.getElementById("1").onclick = onButtonPress;
+    document.getElementById("2").onclick = onButtonPress;
+    document.getElementById("3").onclick = onButtonPress;
+    document.getElementById("4").onclick = onButtonPress;
+    document.getElementById('5').onclick = onButtonPress;
+    document.getElementById("6").onclick = onButtonPress;
+    document.getElementById("7").onclick = onButtonPress;
+    document.getElementById("8").onclick = onButtonPress;
+    document.getElementById("9").onclick = onButtonPress;
+    document.getElementById("/").onclick = onButtonPress();
+    document.getElementById("X").onclick = onButtonPress();
+    document.getElementById("+").onclick = onButtonPress();
+    document.getElementById("-").onclick = onButtonPress();
+
 
     function onDeviceReady() {  
         // Handle the Cordova pause and resume events
@@ -20,16 +38,13 @@
         receivedElement.setAttribute('style', 'display:block;');
     };
 
-    function onButtonPress() {
-
-        window.alert("sometext");
+    function onButtonPress(buttonValue) {
 
         var myTable = document.getElementById("buttons");
-        var currentIndex = myTable.rows.length;
-        var currentRow = myTable.insertRow(-1);
         
-        console.debug("debug message");
-        console.log("logging message");
+        console.log("-------Button!!------");
+       // console.log(buttonValue);
+       // console.log("-------End of Button------");
 
     };
 
