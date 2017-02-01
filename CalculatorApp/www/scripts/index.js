@@ -7,55 +7,72 @@
 //Globals
 var numberOne = 0;
 var numberTwo = 0;
-
-var type;
+var nextValue = false;
+var type = null;
 
 (function () {
     "use strict";
 
     document.addEventListener('deviceready', onDeviceReady.bind(this), false);
 
-    //    //- Using a function pointer:
-    // document.getElementById("0").onclick = function () { if (numberOne == ER) numberOne = 0; else numberTwo = 0; display.value = "0" };
-    //document.getElementById("0").onclick = function () { if (numberOne == ER) numberOne = 1; else numberTwo = 1; display.value = "1" };
-    // document.getElementById("0").onclick = function () { if (numberOne == ER) numberOne = 2; else numberOne = 2; display.value = "2" };
+    //Connect the buttons an watch for a click. 
+    document.getElementById("0").onclick = function () { if (display.value == 0 || display.value == "ERR") display.value = ""; display.value += "0"; if (nextValue == false) numberOne = ((numberOne * 10) + 0); else numberTwo = ((numberTwo * 10) + 0); };
+    document.getElementById("1").onclick = function () { if (display.value == 0 || display.value == "ERR") display.value = ""; display.value += "1"; if (nextValue == false) numberOne = ((numberOne * 10) + 1); else numberTwo = ((numberTwo * 10) + 1); };
+    document.getElementById("2").onclick = function () { if (display.value == 0 || display.value == "ERR") display.value = ""; display.value += "2"; if (nextValue == false) numberOne = ((numberOne * 10) + 2); else numberTwo = ((numberTwo * 10) + 2); };
+    document.getElementById("3").onclick = function () { if (display.value == 0 || display.value == "ERR") display.value = ""; display.value += "3"; if (nextValue == false) numberOne = ((numberOne * 10) + 3); else numberTwo = ((numberTwo * 10) + 3); };
+    document.getElementById("4").onclick = function () { if (display.value == 0 || display.value == "ERR") display.value = ""; display.value += "4"; if (nextValue == false) numberOne = ((numberOne * 10) + 4); else numberTwo = ((numberTwo * 10) + 4); };
+    document.getElementById("5").onclick = function () { if (display.value == 0 || display.value == "ERR") display.value = ""; display.value += "5"; if (nextValue == false) numberOne = ((numberOne * 10) + 5); else numberTwo = ((numberTwo * 10) + 5); };
+    document.getElementById("6").onclick = function () { if (display.value == 0 || display.value == "ERR") display.value = ""; display.value += "6"; if (nextValue == false) numberOne = ((numberOne * 10) + 6); else numberTwo = ((numberTwo * 10) + 6); };
+    document.getElementById("7").onclick = function () { if (display.value == 0 || display.value == "ERR") display.value = ""; display.value += "7"; if (nextValue == false) numberOne = ((numberOne * 10) + 7); else numberTwo = ((numberTwo * 10) + 7); };
+    document.getElementById("8").onclick = function () { if (display.value == 0 || display.value == "ERR") display.value = ""; display.value += "8"; if (nextValue == false) numberOne = ((numberOne * 10) + 8); else numberTwo = ((numberTwo * 10) + 8); };
+    document.getElementById("9").onclick = function () { if (display.value == 0 || display.value == "ERR") display.value = ""; display.value += "9"; if (nextValue == false) numberOne = ((numberOne * 10) + 9); else numberTwo = ((numberOne * 10) + 9); };
 
-    //- Using a function pointer:
-    document.getElementById("0").onclick = function () { display.value = "0"; if (numberOne == 0) numberOne = 0; else numberTwo = 0; };
-    document.getElementById("1").onclick = function () { display.value = "1"; if (numberOne == 0) numberOne = 1; else numberTwo = 1; };
-    document.getElementById("2").onclick = function () { display.value = "2"; if (numberOne == 0) numberOne = 2; else numberTwo = 2; };
-    document.getElementById("3").onclick = function () { display.value = "3"; if (numberOne == 0) numberOne = 3; else numberTwo = 3; };
-    document.getElementById("4").onclick = function () { display.value = "4"; if (numberOne == 0) numberOne = 4; else numberTwo = 4; };
-    document.getElementById("5").onclick = function () { display.value = "5"; if (numberOne == 0) numberOne = 5; else numberTwo = 5; };
-    document.getElementById("6").onclick = function () { display.value = "6"; if (numberOne == 0) numberOne = 6; else numberTwo = 6; };
-    document.getElementById("7").onclick = function () { display.value = "7"; if (numberOne == 0) numberOne = 7; else numberTwo = 7; };
-    document.getElementById("8").onclick = function () { display.value = "8"; if (numberOne == 0) numberOne = 8; else numberTwo = 8; };
-    document.getElementById("9").onclick = function () { display.value = "9"; if (numberOne == 0) numberOne = 9; else numberTwo = 9; };
-
-    document.getElementById("/").onclick = function () { type = "/" };
-    document.getElementById("X").onclick = function () { type = "X" };
-    document.getElementById("+").onclick = function () { type = "+" };
-    document.getElementById("-").onclick = function () { type = "-" };
-
+    document.getElementById("C").onclick = function () { display.value = 0; numberOne = 0; numberTwo = 0; nextValue = false; type = null; }; 
+    document.getElementById("/").onclick = function () { display.value = 0; type = "/"; nextValue = true; };
+    document.getElementById("X").onclick = function () { display.value = 0; type = "X"; nextValue = true; };
+    document.getElementById("+").onclick = function () { display.value = 0; type = "+"; nextValue = true; };
+    document.getElementById("-").onclick = function () { display.value = 0; type = "-"; nextValue = true; };
     document.getElementById("=").onclick = calculate;
 
     function calculate() {
 
+        nextValue = false;
+
         switch (type)
         {
             case "+":
-                display.value = (numberOne + numberTwo);
+                if (numberTwo != 0) {
+                    display.value = (numberOne + numberTwo);
+                    numberOne = (numberOne + numberTwo);
+                    numberTwo = 0;
+                }
                 break;
 
             case "-":
-
+                display.value = (numberOne - numberTwo);
+                numberOne = (numberOne - numberTwo);
+                numberTwo = 0;
                 break;
 
             case "X":
-
+                display.value = (numberOne * numberTwo);
+                numberOne = (numberOne * numberTwo);
+                numberTwo = 0;
                 break;
 
             case "/":
+                if (numberOne != 0 && numberTwo != 0) {
+                    display.value = (numberOne / numberTwo);
+                    numberOne = (numberOne / numberTwo);
+                    numberTwo = 0;
+                }
+                else{
+                    display.value = "ERR";
+                    numberOne = 0;
+                    numberTwo = 0;
+                    nextValue = false;
+                    type = null;
+                }
 
                 break;
 
@@ -76,16 +93,6 @@ var type;
         var receivedElement = parentElement.querySelector('.received');
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
-    };
-
-    function onButtonPress(buttonValue) {
-
-        console.log("-------Button!!------");
-
-           console.log(buttonValue)
-
-        console.log("-------DONE BUTTON!!------");
-
     };
 
     function onPause() {
