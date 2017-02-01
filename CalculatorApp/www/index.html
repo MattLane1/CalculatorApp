@@ -22,15 +22,14 @@ File: This is the Index area of the application. The main page is here, and the 
     </head>
 
     <body>
+        <!-- Set up the main class -->
         <div class="app">
-   
-         <!--   <div id="deviceready"> <!-- class="blink" -->
+            <!-- Display box -->
             <input type="text" id="display" class="resultBox" name="display" value="0">
+           
+             <form id="mainForm" name="calculator">
 
-
-            <form id="mainForm" name="calculator">
-
-
+                <!-- Place the buttons -->
                 <table id="buttons" table border="1">
 
                     <tr>
@@ -62,9 +61,6 @@ File: This is the Index area of the application. The main page is here, and the 
             </form>
 </div>
 
-       <!-- </div> -->
-
-       <!-- <p>Test4</p> -->
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="scripts/platformOverrides.js"></script>
         <script type="text/javascript" src="scripts/index.js"></script>
