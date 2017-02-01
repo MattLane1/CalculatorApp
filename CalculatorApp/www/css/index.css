@@ -1,3 +1,11 @@
+/*
+Author: Matthew Lane (200214586)
+DOC: 01/02/2017
+Purpose: A calculator program, written in HTML and JS to be run on an android emulator (cordova).
+File: This is the CSS area of the application. The classes which determine the size font etc. are set up here. 
+*/
+
+
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
